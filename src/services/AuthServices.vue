@@ -16,6 +16,17 @@ const AuthServices = {
       console.error('Login failed', error);
       throw error;
     }
+  },
+
+  async fetchCategories() {
+    try {
+      const response = await axios.get('https://localhost:7095/api/Category/GetAllCategoriesAsync');
+      console.log("fetchCategories Response", response);
+      return response.data.data.categories;
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      throw error;
+    }
   }
 };
 
